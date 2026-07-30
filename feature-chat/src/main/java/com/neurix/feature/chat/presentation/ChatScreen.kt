@@ -190,12 +190,21 @@ fun MessageBubble(message: ChatMessage) {
                         )
                     )
                     .background(
-                        if (message.isUser)
+                        if (message.isUser) {
                             Brush.linearGradient(
-                                listOf(NeurixColors.Primary, NeurixColors.Secondary)
+                                listOf(
+                                    NeurixColors.Primary,
+                                    NeurixColors.Secondary
+                                )
                             )
-                        else
-                            NeurixColors.SurfaceHigh
+                        } else {
+                            Brush.linearGradient(
+                                listOf(
+                                    NeurixColors.SurfaceHigh,
+                                    NeurixColors.SurfaceHigh
+                                )
+                            )
+                        }
                     )
                     .padding(
                         horizontal = NeurixDimens.PaddingMedium,
