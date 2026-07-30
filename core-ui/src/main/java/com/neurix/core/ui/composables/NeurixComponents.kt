@@ -9,14 +9,13 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -63,14 +62,17 @@ fun NeurixGradientCircle(
 fun NeurixCard(
     modifier: Modifier = Modifier,
     onClick: (() -> Unit)? = null,
-    content: @Composable () -> Unit
+    content: @Composable ColumnScope.() -> Unit
 ) {
     Card(
         modifier = modifier
             .fillMaxWidth()
             .then(
-                if (onClick != null) Modifier.clickable(onClick = onClick)
-                else Modifier
+                if (onClick != null) {
+                    Modifier.clickable(onClick = onClick)
+                } else {
+                    Modifier
+                }
             ),
         shape = RoundedCornerShape(NeurixDimens.CornerLarge),
         colors = CardDefaults.cardColors(
@@ -91,6 +93,7 @@ fun PlaceholderScreen(
             .fillMaxSize()
             .background(NeurixColors.Background)
     ) {
+
         if (onBack != null) {
             NeurixTopBar(
                 title = featureName,
@@ -105,6 +108,7 @@ fun PlaceholderScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
+
             Icon(
                 imageVector = Icons.Filled.Construction,
                 contentDescription = null,
@@ -112,7 +116,9 @@ fun PlaceholderScreen(
                 modifier = Modifier.size(64.dp)
             )
 
-            Spacer(modifier = Modifier.height(NeurixDimens.PaddingLarge))
+            Spacer(
+                modifier = Modifier.height(NeurixDimens.PaddingLarge)
+            )
 
             Text(
                 text = featureName,
@@ -121,7 +127,9 @@ fun PlaceholderScreen(
                 textAlign = TextAlign.Center
             )
 
-            Spacer(modifier = Modifier.height(NeurixDimens.PaddingSmall))
+            Spacer(
+                modifier = Modifier.height(NeurixDimens.PaddingSmall)
+            )
 
             Text(
                 text = description,
@@ -130,7 +138,9 @@ fun PlaceholderScreen(
                 textAlign = TextAlign.Center
             )
 
-            Spacer(modifier = Modifier.height(NeurixDimens.PaddingXLarge))
+            Spacer(
+                modifier = Modifier.height(NeurixDimens.PaddingXLarge)
+            )
 
             Text(
                 text = "Coming Soon",
