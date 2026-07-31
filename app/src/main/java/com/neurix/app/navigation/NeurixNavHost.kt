@@ -1,23 +1,17 @@
 package com.neurix.app.navigation
 
-import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
-import androidx.compose.animation.slideIntoContainer
-import androidx.compose.animation.slideOutOfContainer
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-
 import com.neurix.core.navigation.Screen
-
-import com.neurix.feature.home.presentation.HomeScreen
 import com.neurix.feature.chat.presentation.ChatScreen
-import com.neurix.feature.settings.presentation.SettingsScreen
+import com.neurix.feature.home.presentation.HomeScreen
 import com.neurix.feature.settings.presentation.SettingsDetailScreen
-
+import com.neurix.feature.settings.presentation.SettingsScreen
 
 @Composable
 fun NeurixNavHost(
@@ -29,31 +23,22 @@ fun NeurixNavHost(
         startDestination = Screen.Home.route,
 
         enterTransition = {
-            fadeIn(tween(300)) +
-                    slideIntoContainer(
-                        towards = AnimatedContentTransitionScope.SlideDirection.Left,
-                        animationSpec = tween(300)
-                    )
+            fadeIn(animationSpec = tween(300))
         },
 
         exitTransition = {
-            fadeOut(tween(300))
+            fadeOut(animationSpec = tween(300))
         },
 
         popEnterTransition = {
-            fadeIn(tween(300))
+            fadeIn(animationSpec = tween(300))
         },
 
         popExitTransition = {
-            fadeOut(tween(300)) +
-                    slideOutOfContainer(
-                        towards = AnimatedContentTransitionScope.SlideDirection.Right,
-                        animationSpec = tween(300)
-                    )
+            fadeOut(animationSpec = tween(300))
         }
 
     ) {
-
 
         composable(Screen.Home.route) {
 
@@ -64,7 +49,6 @@ fun NeurixNavHost(
             )
         }
 
-
         composable(Screen.Chat.route) {
 
             ChatScreen(
@@ -74,19 +58,14 @@ fun NeurixNavHost(
             )
         }
 
-
         composable(Screen.Settings.route) {
 
             SettingsScreen(
                 onNavigateToDetail = {
-
                     navController.navigate(it.route)
-
                 }
             )
         }
-
-
 
         composable(Screen.Theme.route) {
 
@@ -99,8 +78,6 @@ fun NeurixNavHost(
             )
         }
 
-
-
         composable(Screen.Language.route) {
 
             SettingsDetailScreen(
@@ -111,8 +88,6 @@ fun NeurixNavHost(
                 }
             )
         }
-
-
 
         composable(Screen.Voice.route) {
 
@@ -125,8 +100,6 @@ fun NeurixNavHost(
             )
         }
 
-
-
         composable(Screen.Memory.route) {
 
             SettingsDetailScreen(
@@ -137,8 +110,6 @@ fun NeurixNavHost(
                 }
             )
         }
-
-
 
         composable(Screen.Permissions.route) {
 
@@ -151,8 +122,6 @@ fun NeurixNavHost(
             )
         }
 
-
-
         composable(Screen.About.route) {
 
             SettingsDetailScreen(
@@ -163,6 +132,5 @@ fun NeurixNavHost(
                 }
             )
         }
-
     }
 }
