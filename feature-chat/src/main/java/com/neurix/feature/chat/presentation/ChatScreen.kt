@@ -335,7 +335,7 @@ fun ChatInputBar(
                 .background(NeurixColors.Primary)
         ) {
             Icon(
-                imageVector = Icons.Filled.Send,
+                imageVector = Icons.AutoMirrored.Filled.Send,
                 contentDescription = "Send",
                 tint = Color.White,
                 modifier = Modifier.size(20.dp)
