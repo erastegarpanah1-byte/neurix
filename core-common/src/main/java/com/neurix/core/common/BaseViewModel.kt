@@ -1,6 +1,5 @@
 package com.neurix.core.common
 
-import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
@@ -9,12 +8,12 @@ import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 
 abstract class BaseViewModel<
-    State : MviState,
-    Intent : MviIntent,
-    Effect : MviEffect
+        State : MviState,
+        Intent : MviIntent,
+        Effect : MviEffect
 >(
     initialState: State
-) : ViewModel() {
+) {
 
     private val _state = MutableStateFlow(initialState)
     val state: StateFlow<State> = _state.asStateFlow()
