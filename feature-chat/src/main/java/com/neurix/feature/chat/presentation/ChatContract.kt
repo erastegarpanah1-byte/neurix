@@ -1,5 +1,6 @@
 package com.neurix.feature.chat.presentation
 
+import com.neurix.core.common.MviEffect
 import com.neurix.core.common.MviIntent
 import com.neurix.core.common.MviState
 
@@ -20,6 +21,10 @@ sealed interface ChatIntent : MviIntent {
     data class UpdateInput(val text: String) : ChatIntent
     data object SendMessage : ChatIntent
     data object TapMicrophone : ChatIntent
+}
+
+sealed interface ChatEffect : MviEffect {
+    data object None : ChatEffect
 }
 
 val fakeMessages = listOf(
