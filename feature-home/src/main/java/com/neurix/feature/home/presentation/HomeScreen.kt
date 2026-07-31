@@ -40,7 +40,7 @@ import com.neurix.core.ui.composables.FadeInView
 @Composable
 fun HomeScreen(
     onNavigateToChat: () -> Unit,
-    viewModel: HomeViewModel = hiltViewModel()
+    viewModel: HomeViewModel = hiltViewModel(initializer = { })
 ) {
     val state by viewModel.state.collectAsState()
 
