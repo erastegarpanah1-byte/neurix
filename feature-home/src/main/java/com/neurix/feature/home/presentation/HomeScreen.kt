@@ -17,6 +17,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Mic
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -156,7 +157,7 @@ fun HomeScreen(
                 )
 
                 // Mic button
-                androidx.compose.material3.IconButton(
+                IconButton(
                     onClick = { viewModel.handleIntent(HomeIntent.TapMicrophone) },
                     modifier = Modifier
                         .size(NeurixDimens.MicButtonSize)
