@@ -47,7 +47,7 @@ import androidx.navigation.compose.rememberNavController
 import com.neurix.core.design.NeurixColors
 import com.neurix.core.design.NeurixTheme
 import com.neurix.core.design.NeurixSystemUi
-import com.neurix.core.navigation.NeurixNavHost
+import com.neurix.app.navigation.NeurixNavHost
 import com.neurix.core.navigation.Screen
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
