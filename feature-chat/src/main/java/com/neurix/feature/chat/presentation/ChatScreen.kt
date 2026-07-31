@@ -57,7 +57,7 @@ import com.neurix.core.design.NeurixDimens
 @Composable
 fun ChatScreen(
     onNavigateBack: () -> Unit,
-    viewModel: ChatViewModel = hiltViewModel(initializer = { })
+    viewModel: ChatViewModel = hiltViewModel()
 ) {
     val state by viewModel.state.collectAsState()
     val listState = rememberLazyListState()
