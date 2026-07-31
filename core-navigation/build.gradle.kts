@@ -27,15 +27,23 @@ android {
 }
 
 dependencies {
-
+    // Core modules
     implementation(project(":core-design"))
 
+    // Feature modules (برای دسترسی به HomeScreen, ChatScreen, SettingsScreen)
+    implementation(project(":feature-home"))
+    implementation(project(":feature-chat"))
+    implementation(project(":feature-settings"))
+
+    // Compose BOM
     implementation(platform(libs.compose.bom))
 
+    // Compose dependencies
     implementation(libs.compose.ui)
     implementation(libs.compose.material3)
     implementation(libs.compose.animation)
 
+    // Navigation
     implementation(libs.navigation.compose)
     implementation(libs.hilt.navigation.compose)
 }
