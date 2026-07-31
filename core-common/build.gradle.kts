@@ -24,4 +24,5 @@ android {
 dependencies {
     implementation(libs.core.ktx)
     implementation(libs.coroutines.core)
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.2")
 }
