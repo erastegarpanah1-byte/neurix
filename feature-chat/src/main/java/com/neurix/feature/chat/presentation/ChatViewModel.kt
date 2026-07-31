@@ -5,22 +5,26 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class ChatViewModel @Inject constructor() : BaseViewModel<ChatState, ChatIntent, ChatEffect>(
-    ChatState()
-)
-) {
+class ChatViewModel @Inject constructor() :
+    BaseViewModel<ChatState, ChatIntent, Nothing>(
+        ChatState()
+    ) {
+
     override fun handleIntent(intent: ChatIntent) {
         when (intent) {
+
             is ChatIntent.UpdateInput -> {
-                setState { copy(inputText = intent.text) }
+                setState {
+                    copy(inputText = intent.text)
+                }
             }
 
             ChatIntent.SendMessage -> {
-                // Mock: do nothing
+                // TODO
             }
 
             ChatIntent.TapMicrophone -> {
-                // Mock: do nothing
+                // TODO
             }
         }
     }
