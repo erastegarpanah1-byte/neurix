@@ -38,8 +38,7 @@ dependencies {
     implementation(libs.compose.ui)
     implementation(libs.compose.material3)
     implementation(libs.compose.animation)
-    implementation("androidx.navigation:navigation-compose:2.8.0")
-    implementation("androidx.compose.animation:animation")
+
 
     // Navigation
     implementation(libs.navigation.compose)
