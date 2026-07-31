@@ -30,10 +30,6 @@ dependencies {
     // Core modules
     implementation(project(":core-design"))
 
-    // Feature modules (برای دسترسی به HomeScreen, ChatScreen, SettingsScreen)
-    implementation(project(":feature-home"))
-    implementation(project(":feature-chat"))
-    implementation(project(":feature-settings"))
 
     // Compose BOM
     implementation(platform(libs.compose.bom))
