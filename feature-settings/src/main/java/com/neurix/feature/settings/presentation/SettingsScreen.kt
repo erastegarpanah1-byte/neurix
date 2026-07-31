@@ -18,7 +18,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.automirrored.filled.ChevronRight
+import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.filled.Brush
 import androidx.compose.material.icons.filled.DarkMode
 import androidx.compose.material.icons.filled.Info
@@ -237,7 +237,7 @@ fun SettingsRow(
     iconTint: Color,
     onClick: () -> Unit
 ) {
-    androidx.compose.material3.IconButton(
+    IconButton(
         onClick = onClick,
         modifier = Modifier
             .fillMaxWidth()
@@ -283,7 +283,7 @@ fun SettingsRow(
             }
 
             Icon(
-                imageVector = Icons.AutoMirrored.Filled.ChevronRight,
+                imageVector = Icons.AutoMirrored.Filled.ArrowForward,
                 contentDescription = null,
                 tint = NeurixColors.OnSurfaceMuted,
                 modifier = Modifier.size(20.dp)
