@@ -9,9 +9,9 @@ import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 
 abstract class BaseViewModel<
-        State : MviState,
-        Intent : MviIntent,
-        Effect : MviEffect
+    State : MviState,
+    Intent : MviIntent,
+    Effect : MviEffect
 >(
     initialState: State
 ) : ViewModel() {
