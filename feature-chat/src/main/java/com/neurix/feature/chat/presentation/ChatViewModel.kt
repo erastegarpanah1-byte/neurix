@@ -5,8 +5,9 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class ChatViewModel @Inject constructor() : BaseViewModel<ChatState, ChatIntent, Nothing>(
+class ChatViewModel @Inject constructor() : BaseViewModel<ChatState, ChatIntent, ChatEffect>(
     ChatState()
+)
 ) {
     override fun handleIntent(intent: ChatIntent) {
         when (intent) {
