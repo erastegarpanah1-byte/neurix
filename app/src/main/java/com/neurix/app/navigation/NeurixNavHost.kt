@@ -1,4 +1,5 @@
 package com.neurix.app.navigation
+
 import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
@@ -13,7 +14,7 @@ import com.neurix.feature.chat.presentation.ChatScreen
 import com.neurix.feature.home.presentation.HomeScreen
 import com.neurix.feature.settings.presentation.SettingsScreen
 import com.neurix.feature.settings.presentation.SettingsDetailScreen
-
+import com.neurix.core.navigation.Screen
 @Composable
 fun NeurixNavHost(
     navController: NavHostController
