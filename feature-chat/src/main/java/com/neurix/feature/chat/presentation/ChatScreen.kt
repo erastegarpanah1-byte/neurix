@@ -100,7 +100,7 @@ fun ChatScreen(
                 IconButton(onClick = onNavigateBack) {
                     Icon(
                         imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                        contentDescription = null,
+                        contentDescription = "Back",
                         tint = NeurixColors.OnSurface
                     )
                 }
@@ -146,17 +146,6 @@ fun ChatScreen(
 
 @Composable
 fun MessageBubble(message: ChatMessage) {
-    val infiniteTransition = rememberInfiniteTransition(label = "cursor")
-    val cursorAlpha by infiniteTransition.animateFloat(
-        initialValue = 0f,
-        targetValue = 1f,
-        animationSpec = infiniteRepeatable(
-            animation = tween(600),
-            repeatMode = RepeatMode.Reverse
-        ),
-        label = "cursorAlpha"
-    )
-
     Row(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = if (message.isUser) Arrangement.End else Arrangement.Start
@@ -270,11 +259,29 @@ fun TypingIndicator() {
             .padding(horizontal = NeurixDimens.PaddingMedium, vertical = 12.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Box(modifier = Modifier.size(8.dp).alpha(dot1).clip(CircleShape).background(NeurixColors.OnSurfaceMuted))
+        Box(
+            modifier = Modifier
+                .size(8.dp)
+                .alpha(dot1)
+                .clip(CircleShape)
+                .background(NeurixColors.OnSurfaceMuted)
+        )
         Spacer(modifier = Modifier.width(4.dp))
-        Box(modifier = Modifier.size(8.dp).alpha(dot2).clip(CircleShape).background(NeurixColors.OnSurfaceMuted))
+        Box(
+            modifier = Modifier
+                .size(8.dp)
+                .alpha(dot2)
+                .clip(CircleShape)
+                .background(NeurixColors.OnSurfaceMuted)
+        )
         Spacer(modifier = Modifier.width(4.dp))
-        Box(modifier = Modifier.size(8.dp).alpha(dot3).clip(CircleShape).background(NeurixColors.OnSurfaceMuted))
+        Box(
+            modifier = Modifier
+                .size(8.dp)
+                .alpha(dot3)
+                .clip(CircleShape)
+                .background(NeurixColors.OnSurfaceMuted)
+        )
     }
 }
 
