@@ -1,5 +1,8 @@
 package com.neurix.app.navigation
 
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -17,10 +20,28 @@ fun NeurixNavHost(
 
     NavHost(
         navController = navController,
-        startDestination = Screen.Home.route
+        startDestination = Screen.Home.route,
+
+        enterTransition = {
+            fadeIn(animationSpec = tween(300))
+        },
+
+        exitTransition = {
+            fadeOut(animationSpec = tween(300))
+        },
+
+        popEnterTransition = {
+            fadeIn(animationSpec = tween(300))
+        },
+
+        popExitTransition = {
+            fadeOut(animationSpec = tween(300))
+        }
+
     ) {
 
         composable(Screen.Home.route) {
+
             HomeScreen(
                 onNavigateToChat = {
                     navController.navigate(Screen.Chat.route)
@@ -29,6 +50,7 @@ fun NeurixNavHost(
         }
 
         composable(Screen.Chat.route) {
+
             ChatScreen(
                 onNavigateBack = {
                     navController.popBackStack()
@@ -37,6 +59,7 @@ fun NeurixNavHost(
         }
 
         composable(Screen.Settings.route) {
+
             SettingsScreen(
                 onNavigateToDetail = {
                     navController.navigate(it.route)
@@ -45,6 +68,7 @@ fun NeurixNavHost(
         }
 
         composable(Screen.Theme.route) {
+
             SettingsDetailScreen(
                 featureName = "Theme",
                 description = "Customize Neurix appearance.",
@@ -55,6 +79,7 @@ fun NeurixNavHost(
         }
 
         composable(Screen.Language.route) {
+
             SettingsDetailScreen(
                 featureName = "Language",
                 description = "Change application language.",
@@ -65,6 +90,7 @@ fun NeurixNavHost(
         }
 
         composable(Screen.Voice.route) {
+
             SettingsDetailScreen(
                 featureName = "Voice",
                 description = "Configure voice settings.",
@@ -75,6 +101,7 @@ fun NeurixNavHost(
         }
 
         composable(Screen.Memory.route) {
+
             SettingsDetailScreen(
                 featureName = "Memory",
                 description = "Manage AI memory.",
@@ -85,6 +112,7 @@ fun NeurixNavHost(
         }
 
         composable(Screen.Permissions.route) {
+
             SettingsDetailScreen(
                 featureName = "Permissions",
                 description = "Manage permissions.",
@@ -95,6 +123,7 @@ fun NeurixNavHost(
         }
 
         composable(Screen.About.route) {
+
             SettingsDetailScreen(
                 featureName = "About",
                 description = "About Neurix.",
