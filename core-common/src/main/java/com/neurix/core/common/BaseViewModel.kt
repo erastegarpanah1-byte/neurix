@@ -1,5 +1,6 @@
 package com.neurix.core.common
 
+import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
@@ -13,16 +14,24 @@ abstract class BaseViewModel<
         Effect : MviEffect
 >(
     initialState: State
-) {
+) : ViewModel() {
+
 
     private val _state = MutableStateFlow(initialState)
-    val state: StateFlow<State> = _state.asStateFlow()
+
+    val state: StateFlow<State> =
+        _state.asStateFlow()
+
 
     private val _effect = MutableSharedFlow<Effect>()
-    val effect: SharedFlow<Effect> = _effect.asSharedFlow()
+
+    val effect: SharedFlow<Effect> =
+        _effect.asSharedFlow()
+
 
     val currentState: State
         get() = _state.value
+
 
     protected fun setState(
         reducer: State.() -> State
@@ -30,9 +39,13 @@ abstract class BaseViewModel<
         _state.value = _state.value.reducer()
     }
 
-    protected fun sendEffect(effect: Effect) {
+
+    protected fun sendEffect(
+        effect: Effect
+    ) {
         _effect.tryEmit(effect)
     }
+
 
     abstract fun handleIntent(intent: Intent)
 }
